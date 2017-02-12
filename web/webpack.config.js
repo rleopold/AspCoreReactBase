@@ -5,7 +5,7 @@ var BUILD_DIR = path.resolve(__dirname, 'wwwroot/');
 var APP_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
-  entry: APP_DIR + '/components/App.jsx',
+  entry: APP_DIR + '/js/test.js',
   output: {
     path: BUILD_DIR,
     publicPath: '/wwwroot/',
