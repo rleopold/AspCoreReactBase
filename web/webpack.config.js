@@ -5,24 +5,33 @@ var BUILD_DIR = path.resolve(__dirname, 'wwwroot/');
 var APP_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
-  entry: APP_DIR + '/js/test.js',
+  entry: APP_DIR + '/components/App.jsx',
   output: {
     path: BUILD_DIR,
     publicPath: '/wwwroot/',
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?/,
-        include: APP_DIR,
-        loader: 'babel'
-      },
-      {
+   rules: [
+     {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
-      }
-    ]
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          }
+        ]
+     },
+     {
+        test: /\.jsx$/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['react']
+        }
+     }
+   ]
   }
 };
 
